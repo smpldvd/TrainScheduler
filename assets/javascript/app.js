@@ -64,7 +64,6 @@ database.ref().orderByChild("dateAdded").on("child_added", function(childSnap) {
       time = childSnap.val().time;
 
       // Use Moment JS to calculate Next Arrival and Minutes Left
-      var current = moment().format('X');
       const trainFreq = parseInt(freq);
       let firstTrain = moment(time, "HH:mm");
 
@@ -89,7 +88,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(childSnap) {
   );
 
 // Takes values pushed to Firebase and displays in a row on the DOM
-let createRow = function(train) {
+let createRow = function() {
   // Get reference to existing tbody element, create a new table row element
   let $tBody = $("tbody");
   let $tRow = $("<tr>");
